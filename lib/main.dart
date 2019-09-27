@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'src/widgets/FABBottomAppBarItem.dart';
+import 'package:todoapp/src/widgets/bottom_bar_service.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,14 +26,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _lastSelected = 'TAB: 0';
 
-String _lastSelected = 'TAB: 0';
-
-void _selectedTab(int index) {
+  void _selectedTab(int index) {
+    print("inside main");
     setState(() {
+      print("the selected tab $index");
       _lastSelected = 'TAB: $index';
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,27 +46,30 @@ void _selectedTab(int index) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(_lastSelected),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          //blank for now
-        },
-        tooltip: 'Add Task',
+        tooltip: "Add Task",
         child: Icon(Icons.add),
+        elevation: 2.0,
+        onPressed: (){
+          //code to show the dialog box for entry of notes
+        },
       ),
-      bottomNavigationBar: FABBottomAppBar(
+      bottomNavigationBar: FabBottomAppBar(
         centerItemText: 'A',
         color: Colors.grey,
         selectedColor: Colors.red,
         notchedShape: CircularNotchedRectangle(),
         onTabSelected: _selectedTab,
         items: [
-          FABBottomAppBarItem(iconData: Icons.menu, text: 'This'),
-          FABBottomAppBarItem(iconData: Icons.layers, text: 'Is'),
-          FABBottomAppBarItem(iconData: Icons.dashboard, text: 'Bottom'),
-          FABBottomAppBarItem(iconData: Icons.info, text: 'Bar'),
+          BottomAppBarItem(iconData: Icons.home, text: 'Home'),
+          BottomAppBarItem(iconData: Icons.favorite, text: 'Favorite'),
+          BottomAppBarItem(iconData: Icons.center_focus_strong, text: 'Active'),
+          BottomAppBarItem(
+              iconData: Icons.playlist_add_check, text: 'Completed'),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
