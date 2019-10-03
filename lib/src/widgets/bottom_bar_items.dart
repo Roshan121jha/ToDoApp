@@ -43,6 +43,9 @@ class BottomAppItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Icon(item.iconData, color: defColor, size: iconSize),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 5.0),
+                ),
                 Text(
                   item.text,
                   style: TextStyle(color: defColor),

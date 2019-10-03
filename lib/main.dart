@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/src/widgets/bottom_bar_service.dart';
-
+import 'package:todoapp/src/add_new_list.dart/easeout_route.dart';
+import 'package:todoapp/src/widgets/insert_new_list.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -55,7 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
         elevation: 2.0,
         onPressed: (){
-          //code to show the dialog box for entry of notes
+          //code to show the entry of new titles
+          Navigator.push(context, EaseOutRoute(listCreatePage: CreateNewTask()));
+          
         },
       ),
       bottomNavigationBar: FabBottomAppBar(

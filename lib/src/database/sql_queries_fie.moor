@@ -1,0 +1,13 @@
+CREATE TABLE tasklist(
+    tasklistid INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    tasklistname VARCHAR(20) NOT NULL,
+    taskcreatedate INT NOT NULL,
+    taskcompleted INT NOT NULL default 0 CHECK (taskCompleted IN (0,1))
+);
+
+CREATE TABLE listitem(
+    listitemid INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    listname VARCHAR(20) NOT NULL,
+    listcreatedate INT NOT NULL,
+    tasklistid INT REFERENCES tasklist(tasklistid) ON UPDATE CASCADE ON DELETE SET NULL
+);
