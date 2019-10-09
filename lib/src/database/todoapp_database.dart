@@ -1,12 +1,13 @@
 import 'package:moor_flutter/moor_flutter.dart';
 import 'package:moor/moor.dart';
+import 'package:todoapp/src/database/daos/task_list_dao.dart';
 import 'package:todoapp/src/database/dtos/task_list_dto.dart';
 import 'package:todoapp/src/database/dtos/list_items_dto.dart';
 
 part 'todoapp_database.g.dart';
 
 // This annotation tells the code generator which tables this DB works with
-@UseMoor(tables:[Tasklists, Listitems])
+@UseMoor(tables:[Tasklists, Listitems], daos: [TasklistDao])
 // _$AppDatabase is the name of the generated class
 class ToDoAppDatabase extends _$ToDoAppDatabase {
   ToDoAppDatabase()

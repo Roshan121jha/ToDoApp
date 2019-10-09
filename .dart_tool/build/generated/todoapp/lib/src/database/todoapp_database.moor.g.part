@@ -428,7 +428,7 @@ class $ListitemsTable extends Listitems
   GeneratedIntColumn _constructTasklistid() {
     return GeneratedIntColumn('tasklistid', $tableName, false,
         $customConstraints:
-            'REFERENCES tasklist(tasklistid) ON UPDATE CASCADE ON DELETE SET NULL');
+            'REFERENCES tasklists(tasklistid) ON UPDATE CASCADE ON DELETE SET NULL');
   }
 
   final VerificationMeta _listnameMeta = const VerificationMeta('listname');
@@ -558,6 +558,9 @@ abstract class _$ToDoAppDatabase extends GeneratedDatabase {
   $TasklistsTable get tasklists => _tasklists ??= $TasklistsTable(this);
   $ListitemsTable _listitems;
   $ListitemsTable get listitems => _listitems ??= $ListitemsTable(this);
+  TasklistDao _tasklistDao;
+  TasklistDao get tasklistDao =>
+      _tasklistDao ??= TasklistDao(this as ToDoAppDatabase);
   @override
   List<TableInfo> get allTables => [tasklists, listitems];
 }

@@ -1,0 +1,4 @@
+com.example.todoapp
+drawable launch_background
+mipmap ic_launcher
+style LaunchTheme

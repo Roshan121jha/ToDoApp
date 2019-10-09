@@ -6,7 +6,7 @@ class Listitems extends Table {
   // autoIncrement automatically sets this to be the primary key
   IntColumn get listitemid => integer().autoIncrement()();
   //foreign key of TaskLists primary key
-  IntColumn get tasklistid => integer().customConstraint('REFERENCES tasklist(tasklistid) ON UPDATE CASCADE ON DELETE SET NULL')();
+  IntColumn get tasklistid => integer().customConstraint('REFERENCES tasklists(tasklistid) ON UPDATE CASCADE ON DELETE SET NULL')();
   // If the length constraint is not fulfilled, the Task will not
   // be inserted into the database and an exception will be thrown.
   TextColumn get listname => text().withLength(min: 1, max: 50)();

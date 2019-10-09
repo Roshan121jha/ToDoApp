@@ -1,7 +1,0 @@
-// **************************************************************************
-// DaoGenerator
-// **************************************************************************
-
-mixin _$TasklistDaoMixin on DatabaseAccessor<ToDoAppDatabase> {
-  $TasklistsTable get tasklists => db.tasklists;
-}
